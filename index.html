@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+   <head>
+      <title>Evacuation Centers in Staten Island, New York</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+      <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6.3"></script>
+  	<link rel="stylesheet" type="text/css" href="style.css">
+      <script type="text/javascript">
+         var map = null;
+         var thisShape0;
+		 var thisShape1;
+		 var thisShape2;
+		 var thisShape3;
+		 var thisShape4;
+		 var icon="http://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/Map-Marker-Flag-1-Right-Pink-icon.png"
+		 
+		//Arrays with information; Global Variables; 
+			var evac0 = ["Curtis High School (R450)","105 HAMILTON AVENUE STATEN ISLAND NY 10301","40.645401","-74.081901","https://lh4.googleusercontent.com/-yVx-hNZ5ffo/UGPLB5rg32I/AAAAAAAAADk/nrh65FU9xew/s427/CURTIS+HIGH+SCHOOL+1.jpg","https://sites.google.com/a/curtishs.org/home/"];
+			var evac1 = ["I.S. 051 Edwin Markham (R051)","20 HOUSTON STREET STATEN ISLAND NY 10302","40.622898","-74.144996","http://schools.nyc.gov/NR/rdonlyres/5D4DE2ED-902A-4092-AECB-68584256EFAA/12928/31R051_school.jpg","http://www.is51.org/home"];
+			var evac2 = ["P.S. 80 (Michael J. Petrides School)","715 OCEAN TERRACE STATEN ISLAND NY 10301","40.608299","-74.105003","http://schools.nyc.gov/NR/rdonlyres/8F6D4EF0-80AE-4A06-AD24-F1B3C0F94DF6/128597/school1.jpg","http://www.petridesschool.com/site/default.aspx?PageID=1"];
+			var evac3 = ["Susan E. Wagner High School (R460)","1200 MANOR ROAD	STATEN ISLAND NY 10314","40.597698","-74.125297","http://media.silive.com/latest_news/photo/wagnerjpg-19a0b0118dd18cb9.jpg","http://www.wagnerhigh.net/"];
+			var evac4 = ["Tottenville High School (R455)","100 LUTEN AVENUE STATEN ISLAND NY 10312","40.527099","-74.192596","http://schools.nyc.gov/NR/rdonlyres/DE9AB979-D72B-47F8-AA77-8C78BBCC2E5A/9081/photo01.jpg","http://www.is34.org/"];
+
+            
+         function GetMap()
+         {
+            map = new VEMap('myMap');
+            map.LoadMap(new VELatLong(40.58628766663807, -74.13724850000001),11, VEMapStyle.Roads); //Centered on NYC, Zoom Level 10, Bing Roads Basemap
+			map.AttachEvent("onmouseover", doMouseOver); //attaches map onmouseover event
+			map.AttachEvent("onclick", doClick); //attaches map onclick event
+			map.HideDashboard();
+			
+            //Add evac0 pushpin to the map
+				thisPoint0 = new VELatLong(evac0[2],evac0[3]); //creates new lat/long VEMap Class
+				thisShape0 = new VEShape(VEShapeType.Pushpin, thisPoint0); //creates new shape styled pushpin to be added to map
+				thisShape0.SetTitle(evac0[0]); //sets the title of infobox
+				thisShape0.SetDescription("<B>Address:</B> <br>"+evac0[1]); //formats the description space inside infobox
+				thisShape0.SetPhotoURL(evac0[4]); //sets photo url to assigned array item with image URL location
+				thisShape0.SetCustomIcon(icon); // this provides custom icon linked to image source online
+				thisShape0.SetMoreInfoURL(evac0[5]); //this provides the elipsis in the infobox that will take users to URL
+				map.AddShape(thisShape0); //adds pushpin shape to map	
+				
+			//Add evac1 pushpin to the map
+				thisPoint1 = new VELatLong(evac1[2],evac1[3]); //creates new lat/long VEMap Class
+				thisShape1 = new VEShape(VEShapeType.Pushpin, thisPoint1); //creates new shape styled pushpin to be added to map
+				thisShape1.SetTitle(evac1[0]); //sets the title of infobox
+				thisShape1.SetDescription("<B>Address:</B> <br>"+evac1[1]); //formats the description space inside infobox
+				thisShape1.SetPhotoURL(evac1[4]); //sets photo url to assigned array item with image URL location
+				thisShape1.SetCustomIcon(icon); // this provides custom icon linked to image source online
+				thisShape1.SetMoreInfoURL(evac1[5]); //this provides the elipsis in the infobox that will take users to URL
+				map.AddShape(thisShape1); //adds pushpin shape to map	
+
+			//Add evac2 pushpin to the map
+				thisPoint2 = new VELatLong(evac2[2],evac2[3]); //creates new lat/long VEMap Class
+				thisShape2 = new VEShape(VEShapeType.Pushpin, thisPoint2); //creates new shape styled pushpin to be added to map
+				thisShape2.SetTitle(evac2[0]); //sets the title of infobox
+				thisShape2.SetDescription("<B>Address:</B> <br>"+evac2[1]); //formats the description space inside infobox
+				thisShape2.SetPhotoURL(evac2[4]); //sets photo url to assigned array item with image URL location
+				thisShape2.SetCustomIcon(icon); // this provides custom icon linked to image source online
+				thisShape2.SetMoreInfoURL(evac2[5]); //this provides the elipsis in the infobox that will take users to URL
+				map.AddShape(thisShape2); //adds pushpin shape to map					
+ 
+			//Add evac3 pushpin to the map
+				thisPoint3 = new VELatLong(evac3[2],evac3[3]); //creates new lat/long VEMap Class
+				thisShape3 = new VEShape(VEShapeType.Pushpin, thisPoint3); //creates new shape styled pushpin to be added to map
+				thisShape3.SetTitle(evac3[0]); //sets the title of infobox
+				thisShape3.SetDescription("<B>Address:</B> <br>"+evac3[1]); //formats the description space inside infobox
+				thisShape3.SetPhotoURL(evac3[4]); //sets photo url to assigned array item with image URL location
+				thisShape3.SetCustomIcon(icon); // this provides custom icon linked to image source online
+				thisShape3.SetMoreInfoURL(evac3[5]); //this provides the elipsis in the infobox that will take users to URL
+				map.AddShape(thisShape3); //adds pushpin shape to map					
+
+			//Add evac4 pushpin to the map
+				thisPoint4 = new VELatLong(evac4[2],evac4[3]); //creates new lat/long VEMap Class
+				thisShape4 = new VEShape(VEShapeType.Pushpin, thisPoint4); //creates new shape styled pushpin to be added to map
+				thisShape4.SetTitle(evac4[0]); //sets the title of infobox
+				thisShape4.SetDescription("<B>Address:</B> <br>"+evac4[1]); //formats the description space inside infobox
+				thisShape4.SetPhotoURL(evac4[4]); //sets photo url to assigned array item with image URL location
+				thisShape4.SetCustomIcon(icon); // this provides custom icon linked to image source online
+				thisShape4.SetMoreInfoURL(evac4[5]); //this provides the elipsis in the infobox that will take users to URL
+				map.AddShape(thisShape4); //adds pushpin shape to map						
+				
+
+      }
+	  
+        function showEvac0() { //fuction used to show info box of referenced shape
+			map.ShowInfoBox(thisShape0);
+		}
+		
+        function showEvac1() {//fuction used to show info box of referenced shape
+			map.ShowInfoBox(thisShape1);
+		}
+		
+        function showEvac2() {//fuction used to show info box of referenced shape
+			map.ShowInfoBox(thisShape2);
+		}
+		
+        function showEvac3() {//fuction used to show info box of referenced shape
+			map.ShowInfoBox(thisShape3);
+		}
+		
+        function showEvac4() {//fuction used to show info box of referenced shape
+			map.ShowInfoBox(thisShape4);
+		}
+		
+		function HideInfoBox()
+        {
+			map.HideInfoBox();
+        }
+      
+	  	function doClick(e){ //this func shows infobox when element is clicked
+			if (e.elementID){
+				map.ShowInfoBox(map.GetShapeByID(e.elementID));}
+		}
+			
+		function doMouseOver(e){ //this func disables the popup
+			if (e.elementID){
+				return true;
+			}
+		}
+		
+	</script>
+	   </head>
+   <body onload="GetMap();">
+    
+	  <!--Content Table -->
+      <table valign="top" align="center" width="800px" border = "0px;" cellpadding="25px"> 
+		<tr width="800px">
+			<td valign="top" width="100%" align="center"><br><br>
+				<h2>Evacuation Centers in Staten Island, New York</h2><br><br>
+			</td>
+		</tr>
+		</table>
+		<table valign="top" align="center" width="800px" style="border-width:5px; border-style:solid; ">
+		<tr width="800px">
+			<td valign="top" width="400px" height="400px">
+				<div id='myMap' style="position:relative; width:400px; height="350px"></div>
+			</td>
+			<td align="center" valign="center" width="400px" height="400px">
+				<h4>Hover over (mouseover) the items in the following list to trigger map pop-up:</h4><br>
+					<span id="Edwin" onmouseout="HideInfoBox();" onmouseover="showEvac1();">I.S. 051 Edwin Markham (R051)</span><br><br>
+					<span id="Michael" onmouseout="HideInfoBox();" onmouseover="showEvac2();">P.S. 80 (Michael J. Petrides School)</span><br><br>
+					<span id="Susan" onmouseout="HideInfoBox();" onmouseover="showEvac3();">Susan E. Wagner High School (R460)</span><br><br>
+					<span id="Tottenville" onmouseout="HideInfoBox();" onmouseover="showEvac4();">Tottenville High School (R455)</span><br><br>
+					<span id="Curtis" onmouseover="showEvac0();" onmouseout="HideInfoBox();">Curtis High School (R450)</span><br><br>
+				
+				
+				<!-- <button onclick="showMapCenter();">Lat/Long</button> -->
+				
+			</td>
+		</tr>
+	  </table><br><br>
+  <table align="center" width="800px" border = "0px" cellspacing="10px">
+		<tr> <!--Second Row-->
+			<td valign="top" width = "50%"> <!--column 1 -->
+					<h2>About This Map</h2>
+					This map shows the locations of Evacuation Centers in Staten Island, New York using JavaScript code while utilizing VEMap and VEShape Classes and Methods.  The data was found on Google's Crisis Map for Superstorm Sandy.  This is only 5 locations out of the 70 or so locations in the dataset.  A link to the data can be found in the References section of this site.<br><br>
+					
+					This excerpt explains how and why evacuation centers are used during an emergency: "Evacuation centers help ensure the number of people in each shelter is roughly the same to reduce overcrowding and underused facilities. At the evacuation center, evacuees will be assigned to a particular evacuation shelter and be transported by bus or van."<br><br>
+
+					New York City's Office of Emergency Management's (OEM) <a target="_blank" href="http://gis.nyc.gov/oem/he/index.htm">Hurricane Evacuation Zone Finder</a> can be used to locate each residence's evacuation zone. The system will direct evacuees to the proper facility. (<a target="_blank" href ="http://www.nyc.gov/html/oem/html/hazards/storms_sheltering.shtml">NYC Hazards: Hurricane Sheltering</a>)
+					
+					<br><br>
+					
+					
+					<h2>References</h2>
+				Data for this map was collected from Google's Superstorm Sandy Crisis Map 2012.  The data is stored in a Google Docs spreadsheet that can be accessed <a target="_blank" href="https://www.google.com/fusiontables/DataSource?docid=1jhV_7hGHqoeBkf1Gg7YYZZvf4RoNVGvn7EgIyLg">here</a>.</p>
+				Here is a link to the no longer updated Crisis Map for Superstorm Sandy hosted by Google.<a target="_blank" href="http://google.org/crisismap/2012-sandy-nyc">http://google.org/crisismap/2012-sandy-nyc</a>
+			
+					
+					
+					
+			</td>
+			
+			<td valign="top" width = "50%" align="left">  <!--column 2 -->
+				<h2>About the Code</h2>
+					I created this HTML page and style.css using Notepad++.  The Cascading Style Sheet named 'style.css' is externally-linked which dictates how the style of this page appears.  
+					<br><br>
+					The GetMap() function instantiates the VEMap by assigning the map variable to 'new VEMap('myMap');'.  Then the LoadMap method was used to load the specified map.  The VELatLong parameter centers the map over Staten Island, New York.  The zoom level parameter is set to '11' and the Roads style is used as the baselayer. 
+					<br><br>
+					Note that when mouseover event the map info box appears and onmouseout the map info box disappears.  This was added because
+					there was an issue of information appearing on the wrong pushpin.  The HideMapInfo() function solved this issue.
+					<br><br>
+				
+				<b>Here is a sample of code that adds each point with its respective information with comments:</b><br><br>
+            <code>//Add evac0 pushpin to the map<br><br>
+				thisPoint0 = new VELatLong(evac0[2],evac0[3]); //creates new lat/long VEMap Class<br><br>
+				thisShape0 = new VEShape(VEShapeType.Pushpin, thisPoint0); //creates new shape styled pushpin to be added to map<br><br>
+				thisShape0.SetTitle(evac0[0]); //sets the title of infobox<br><br>
+				thisShape0.SetDescription("Address: <br>"+evac0[1]); //formats the description space inside infobox<br><br>
+				thisShape0.SetPhotoURL(evac0[4]); //sets photo url to assigned array item with image URL location<br><br>
+				thisShape0.SetCustomIcon(icon); // this provides custom icon linked to image source online<br><br>
+				thisShape0.SetMoreInfoURL(evac0[5]); //this provides the elipsis in the infobox that will take users to URL<br><br>
+				map.AddShape(thisShape0); //adds pushpin shape to map	<br></code>
+					<br><br>
+				
+			</td>
+			
+		</tr>
+	  </table>
+	   <table align="center" width="800px" border = "0px" cellspacing="10px"><h4 align="center">Created by Bryan M. Lee on April 21, 2013 for course number GES770 at UMBC GIS MPS.</h4><br><br><br><br><br><br></table>
+	   
+   </body>
+</html>
